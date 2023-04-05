@@ -1,0 +1,757 @@
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@200;300;400;500;600&family=Inter:wght@200;300;400;500;700&family=Nunito:wght@200;300;400;500;600&family=Poppins:wght@200;300;400;500;600&family=Roboto:wght@300;400;700&display=swap');
+*{
+    margin: 0; padding: 0;
+    outline: none; border: none;
+    text-decoration: none;
+    list-style: none;
+    text-transform: capitalize;
+    box-sizing: border-box;
+    transition: all 0.2s linear;
+}
+::-webkit-scrollbar{
+    width: 1rem;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+::-webkit-scrollbar-thumb{
+    background: var(--blue);
+    border-radius: 10px;
+}
+:root{
+    --blue:#0099ff;
+    --light-blue:#f0fdfa;
+    --light-color:#777;
+    --light-white:#eee;
+    --light-bg:#eee;
+    --black:#444;
+    --white:#fff;
+    --border:0.1rem solid var(--blue);
+    --box-shadow:0 0.5rem 1rem rgba(0,0,0,0.1);
+}
+html{
+    font-size: 62.5%;
+    scroll-padding-top: 5rem;
+    scroll-behavior: smooth;
+}
+.heading{
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    position: relative;
+}
+.heading span{
+    color: var(--blue);
+}
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    border: var(--border);
+    background: var(--blue);
+    color: var(--white);
+    cursor: pointer;
+    text-transform: capitalize;
+}
+section{
+    padding: 5rem 10%;
+}
+section:nth-child(odd){
+    background: var(--light-bg);
+}
+body{
+    font-family: 'Poppins', sans-serif;
+    background: var(--white);
+}
+.head{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 1rem 4rem;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    z-index: 10000;
+}
+.head .logo{
+    font-size: 4rem;
+    color: var(--black);
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+.head .logo span{
+    color: var(--blue);
+}
+.head .navbar a{
+    position: relative;
+    font-size: 1.8rem;
+    color: var(--black);
+    margin-left: 3rem;
+}
+.head .navbar a::after{
+    content: "";
+    width: 0%;
+    position: absolute;
+    bottom: -6px; left: 0;
+    height: 0.4rem;
+    background: var(--blue);
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+.head .navbar a:hover::after{
+    width: 100%;
+}
+.head .navbar a.active{
+    color: var(--blue);
+}
+.head .navbar a.active::after{
+    width: 100%;
+}
+.head .navbar a:hover{
+    color: var(--blue);
+}
+#bar-icon{
+    font-size: 3rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: none;
+}
+#bar-icon:hover{
+    color: var(--blue);
+}
+.main{
+    padding: 5rem  5%;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4.5rem;
+    align-items: center;
+    overflow: hidden;
+}
+.main::after{
+    content: "";
+    height: 100vh;
+    width: 25%;
+    background: var(--blue);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+} 
+.main .image{
+    flex: 1 1 30rem;
+}
+.main .image img{
+    width: 100%;
+    animation: up-down 2s infinite linear;
+}
+@keyframes up-down {
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-30px);
+    }
+    100%{
+        transform:translateY(0px) ;
+    }
+}
+.main .text{
+    flex: 1 1 30rem;
+}
+.main .text h1{
+    font-size: 3.5rem;
+    color: var(--black);
+    margin-bottom: 3.5rem;
+}
+.main .text p{
+    color: var(--light-color);
+    font-size: 1.5rem;
+    margin-bottom: 3.5rem;
+}
+.main .btn{
+    padding: 1rem 1.6rem;
+    font-size: 1.8rem;
+    background: var(--blue);
+    border-radius: 5px;
+    color: var(--white);
+}
+.main .btn:hover{
+    opacity: 0.8;
+}
+.about .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(30rem,1fr));
+    gap: 2.5rem;
+    width: 100%;
+}
+.about .box-container .box{
+    position: relative;
+    background: var(--white);
+    border: 2px solid var(--black);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    border-radius: 6px;
+    z-index: 1;
+    transition: 0.2s ease;
+}
+.about .box-container .box:hover::after{
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+.about .box-container .box::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: var(--blue);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: -1;
+    transition: 0.4s ease;
+}
+.about .box-container .box i{
+    font-size: 4.5rem;
+    color: var(--blue);
+    margin-bottom: 1.5rem;
+}
+.about .box-container .box h3{
+    font-size: 2.4rem;
+    color: var(--black);
+    margin-bottom: 1rem;
+}
+.about .box-container .box p{
+    font-size: 1.3rem;
+    color: var(--light-color);
+    margin-bottom: 2rem;
+}
+.about .box-container .box .btn{
+    width: 40%;
+    padding: 0.8rem 0rem;
+    font-size: 1.5rem;
+    background: var(--blue);
+    border-radius: 5px;
+    color: var(--white);
+}
+.about .box-container .box .btn:hover{
+    color: var(--white);
+    background: var(--black);
+}
+.courses .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill ,minmax(30rem,1fr));
+    gap: 2rem;
+}
+.courses .box-container .hide{
+    display: none;
+}
+.courses .box-container .box:hover .image img{
+    transform: scale(1.1);
+}
+.courses .box-container .box .image{
+    height: 25rem;
+    overflow: hidden;
+    position: relative;
+}
+.courses .box-container .box .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.courses .box-container .box .image h3{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    color: var(--black);
+    position: absolute;
+    top: 1rem; left: 1rem;
+    padding: 0.5rem 1.5rem;
+    background: var(--white);
+}
+.courses .box-container .box .content{
+    padding: 2rem;
+    text-align: center;
+    border: var(--border);
+}
+.courses .box-container .box .content h3{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    color: var(--black);
+}
+.courses .box-container .box .content p {
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    line-height: 2;
+    color: var(--light-color);
+}
+.courses .box-container .box .content .icons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: var(--border);
+}
+.courses .box-container .box .content .icons span{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    color: var(--black);
+}
+.courses .box-container .box .content .icons span i{
+    color: var(--blue);
+    padding-right: 0.5rem;
+}
+.courses .load-more{
+    text-align: center;
+    margin-top: 2rem;
+}
+.offers .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(32rem,1fr));
+    gap: 2.5rem;
+}
+.offers .box-container .box{
+    background: var(--white);
+    display: flex;
+    gap: 1rem;
+    padding: 3.5rem;
+    border-radius: 4px;
+    border: var(--border);
+    position: relative;
+    z-index: 1;
+    transition: 0.4s ease;
+}
+.offers .box-container .box::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: var(--blue);
+    opacity: 0.1;
+    z-index: -1;
+    transition: 0.4s ease;
+}
+.offers .box-container .box:nth-child(even)::after{
+    background: var(--black);
+    left: 50%;
+}
+.offers .box-container .box:nth-child(even):hover::after{
+    left: 0;
+}
+
+.offers .box-container .box:hover::after{
+    width: 100%;
+}
+.offers .box-container .box i{
+    font-size: 4.5rem;
+    color: var(--blue);
+}
+.offers .box-container .box h3{
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+}
+.offers .box-container .box p{
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+.choose{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+.choose .info{
+    flex: 1 1 30rem;
+}
+.choose .image{
+    flex: 1 1 42rem;
+}
+.choose .image img{
+    width: 100%;
+}
+.choose .info h3{
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+    position: relative;
+}
+.choose .info h3::after{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 15%;
+    height: 0.5rem;
+    background: var(--blue);
+    border-radius: 4px;
+}
+.choose .info p{
+    color: var(--light-color);
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+}
+.choose .info .list a{
+    display: flex;
+    gap: 1rem;
+}
+.choose .info .list a i{
+    color: var(--black);
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    font-size: 2rem;
+    border: var(--border);
+    border-radius: 50%;
+}
+.choose .info .list a p{
+    font-size: 1.6rem;
+    color: var(--black);
+}
+.acheive{
+    background-image: url(../images/desk-with-multiple-computer-monitors-displaying-parsing-code-programming-language-compiling-empty-software-developing-agency-office-servers-cloud-computing-big-data-algorithms.jpg) !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center;
+    padding: 0;
+}
+.acheive .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(25rem,1fr));
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10rem 10%;
+}
+.acheive .box-container .box{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+}
+.acheive .box-container .box i{
+    font-size: 4.5rem;
+    color: var(--blue);
+}
+.acheive .box-container .box h3{
+    font-size: 3rem;
+    color: var(--white);
+}
+.acheive .box-container .box p{
+    color: var(--white);
+    font-size: 1.6rem;
+}
+.pricing .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill ,minmax(31rem, 1fr));
+    gap: 2rem;
+}
+.pricing .box-container .box{
+    text-align: center;
+    padding: 3rem 2rem;
+}
+.pricing .box-container .box:nth-child(2){
+    background: var(--light-bg);
+    border-radius: 0.5rem;
+}
+.pricing .box-container .box:nth-child(2) .btn{
+    background: var(--blue);
+    color: #fff;
+}
+.pricing .box-container .box:nth-child(2) .btn:hover{
+    opacity: 0.8;
+}
+.pricing .box-container .box h3{
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    font-weight: normal;
+    font-size: 2rem;
+    background: var(--blue);
+    color: #fff;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+.pricing .box-container .box .price{
+    font-size: 5rem;
+    font-weight: bolder;
+    color: var(--black);
+}
+.pricing .box-container .box .price span{
+    font-size: 3rem;
+}
+.pricing .box-container .box ul{
+    padding: 1rem 0;
+}
+.pricing .box-container .box ul li{
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+.pricing .box-container .box ul li i{
+    padding-right: 0.5rem;
+    color: var(--red);
+}
+.reviews{
+    background: url(../images/rear-view-programmer-working-all-night-long.jpg) !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center;
+    padding: 0;
+}
+.reviews .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill ,minmax(31rem, 1fr));
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5rem 10%;
+}
+.reviews .box-container .box .user{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.reviews .box-container .box .user img{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+}
+.reviews .box-container .box .user h3{
+    font-size: 2rem;
+    color: var(--white);
+    padding-bottom: 0.5rem;
+}
+.reviews .box-container .box .user .stars i{
+    font-size: 1.5rem;
+    color: var(--blue);
+}
+.reviews .box-container .box .text{
+    padding: 2rem;
+    border-radius: 0.5rem;
+    background: var(--light-bg);
+    font-size: 1.5rem;
+    color: var(--light-color);
+    position: relative;
+    margin-top: 3rem;
+    line-height: 2;
+}
+.reviews .box-container .box .text::before{
+    content: "";
+    position: absolute;
+    top: -1rem; left: 2rem;
+    height: 2rem;
+    width: 2rem;
+    background: var(--light-bg);
+    transform: rotate(45deg);
+}
+.teachers .swiper-wrapper{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(35rem,1fr));
+    gap: 1.5rem;
+}
+.teachers .slide{
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+.teachers .slide .image{
+    position: relative;
+    overflow: hidden;
+}
+.teachers .slide .image img{
+    background: var(--light-white);
+    width: 100%;
+}
+.teachers .slide .image .share{
+    position: absolute;
+    bottom: -10rem; left: 0; right: 0;
+    background: rgba(0,0,0,0.8);
+    padding: 2rem;
+}
+.teachers .slide:hover .share{
+    bottom: 0;
+}
+.teachers .slide:hover .content{
+    top: 0;
+}
+.teachers .slide:hover img{
+    background: var(--blue);
+}
+.teachers .slide .image .share a{
+    font-size: 3rem;
+    margin: 0 1rem;
+    color: var(--white);
+}
+.teachers .slide .image .share a:hover{
+    color: var(--blue);
+}
+.teachers .slide .content{
+    display: flex;
+    padding-top: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: -10rem; left: 0; right: 0;
+    background: rgba(0,0,0,0.8);
+    padding: 2rem;
+}
+.teachers .slide .content h3{
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: var(--white);
+}
+.teachers .slide .content span{
+    font-size: 1.5rem;
+    line-height: 2;
+    color: var(--light-white);
+}
+footer{
+    padding: 2rem;
+    background: var(--light-bg);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+footer .logo{
+    font-size: 4rem;
+    color: var(--black);
+    font-weight: bolder;
+    letter-spacing: 2px;
+}
+footer .logo span{
+    color: var(--blue);
+}
+footer .links a i{
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2.5rem;
+    background: var(--blue);
+    margin-left: 1rem;
+    color: var(--white);
+    border-radius: 50%;
+}
+footer .links a i:hover{
+    background: var(--black);
+    color: var(--blue);
+}
+footer .credit{
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: var(--black);
+    font-weight: 500;
+}
+footer .credit span{
+    color: var(--blue);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:991px) {
+    html{
+        font-size: 55%;
+    }
+    .head{
+        padding: 2rem;
+    }
+    .main .image{
+        display: none;
+    }
+    .main::after{
+        display: none;
+    }
+    .main .text{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding: 5rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+@media (max-width:768px) {
+    .head #bar-icon{
+        display: inline-block;
+        transition: transform 0.2s ease;
+    }
+    .head #bar-icon.fa-times:hover{
+        transform: rotate(-180deg);
+    }
+    .head .navbar{
+        position: absolute;
+        top: 100%; left: 0;
+        width: 100%;
+        background: #eee;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
+        clip-path: polygon(0 1%, 100% 0, 100% 0, 0 0%);
+    }
+    .head .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .head .navbar a{
+        display: block;
+        font-size: 2rem;
+        background: #fff;
+        border: 0.1rem solid var(--black);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        margin: 1.5rem;
+    }
+    .head .navbar a::after{
+        bottom: 0;
+    }
+    .head .navbar a:hover{
+        background: var(--blue);
+        color: var(--white);
+    }
+    .head .navbar a:hover::after{
+        display: none;
+    }
+}
+@media (max-width:450px) {
+    html{
+        font-size: 50%;
+    }
+}
